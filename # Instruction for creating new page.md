@@ -53,7 +53,7 @@ Then you will find a “src” folder in your project file
 
 <img src="./img/samplePage.png" alt="#"/>
 
-**Now create a copy of the “samplePage.jsx” in pages folder and rename it as your new page like “newPage.jsx”**
+**Now create a copy of the “samplePage.jsx” in pages folder and rename it as your new page name like “newPage.jsx”**
 
 ```html
 /* eslint-disable react/prop-types */
@@ -119,7 +119,7 @@ export const query = graphql`
 
 ```
 
-> **Note:** Rename three places in the file as your page name, where 1, 2, 3 number are located on that line.
+> **Note:** Rename three places in the file as your page name, where 1, 2, 3 number are located, on those lines.
 
 Now your new page is ready to see.
 
