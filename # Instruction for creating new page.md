@@ -2,19 +2,17 @@
 
 ## **Step 1:** Setting up your system environment
 
-=> First install “Node Package Manager(npm)” in your PC.
+First install “Node Package Manager(npm)” in your PC.
 
-=> Run the command “npm install” in your terminal to install “Node Package Manager".
+Run the command “npm install” in your terminal to install “Node Package Manager".
 
 > npm install
 
-<!-- <img src="./img/npm.png" alt="#"/> -->
-
-=> Then go to the directory file of your project. Such as:
+Then go to the directory file of your project. Such as:
 
 > cd home/reliance/
 
-=>And install "yarn" in your project. For installing yarn run this command below:
+And install "yarn" in your project. For installing yarn run this command below:
 
 > /home/reliance npm install --global yarn
 
@@ -22,7 +20,7 @@ Wait for it to be completed, it usually takes 5-10 minutes(or less) to complete.
 
 ## Start Development Server
 
-=> Open a new terminal and nevigate to the project directory.
+Open a new terminal and nevigate to the project directory.
 
 Run the command
 
