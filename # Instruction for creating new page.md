@@ -2,11 +2,17 @@
 
 ## **Step 1:** Setting up your system environment
 
-First install “Node Package Manager(npm)” in your PC.
+First install latest “Node.js” version for your windows PC from [here](https://nodejs.org/en/download/).
 
-Run the command “npm install” in your terminal to install “Node Package Manager".
+Now check, it installed or not.
 
-> npm install
+Run the command
+
+> node -v
+
+You will see the latest node version like this
+
+> v16.15.1
 
 Then go to the directory file of your project. Such as:
 
