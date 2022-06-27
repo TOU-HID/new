@@ -14,23 +14,21 @@ You will see the latest node version like this
 
 > v16.15.1
 
-Then go to the directory file of your project. Such as:
+Open a new terminal and nevigate to the project directory.
 
-> cd home/reliance/
+> cd reliance-v2
 
-And install "yarn" in your project. For installing yarn run this command below:
+And run the following command:
 
-> /home/reliance npm install --global yarn
+> npm install
 
 Wait for it to be completed, it usually takes 5-10 minutes(or less) to complete.
 
 ## Start Development Server
 
-Open a new terminal and nevigate to the project directory.
-
 Run the command
 
-> yarn start
+> npm start
 
 **Note:** You must keep the development server running in a seperate terminal as long as you are performing any react native development tasks.
 You need to keep this open in case of running or building the app from command line tools.
@@ -146,3 +144,84 @@ Now you can coustomize this page as you want by coading in the container tag.
     <img src={Image} alt='#' style={{ marginBottom: "20px" }} />
 </Container>
 ```
+
+## **Step 3:** Adding the new page link to the menu
+
+You will find a folder named "data" in the "src" folder. Open it, and there is a "generel" folder in that "data" folder
+
+<img src="./img/menu.png" alt="#"/>
+
+In that "general" folder you will find json data file for "menu" and "footer". Now you can add this new page link any where in these json data files.
+
+An example is provided for understanding
+
+>     	{
+>            "id": "menu-6",
+>            "text": "Info",
+>           "link": "/",
+>           "submenu": [
+>                {
+>                   "id": "menu-61",
+>                   "text": "Agent info",
+>                   "link": "/info/agent-info"
+>                },
+>                {
+>                    "id": "menu-62",
+>                    "text": "BOD Executives",
+>                    "link": "/info/bod-executives"
+>                },
+>                {
+>                    "id": "menu-63",
+>                    "text": "Claim Info",
+>                    "link": "/info/claim-info"
+>                }
+>           ]
+>        },
+
+In menu.json file, you will find an object with "id": "menu-6", there is "submenu" property in that object, which is an array of three object.
+
+> **Note:** array enclosed in [] , and object enclosed in {} .
+
+Now add forth object in "submenu" arry like this:
+
+>     	{
+>            "id": "menu-6",
+>            "text": "Info",
+>           "link": "/",
+>           "submenu": [
+>                {
+>                   "id": "menu-61",
+>                   "text": "Agent info",
+>                   "link": "/info/agent-info"
+>                },
+>                {
+>                    "id": "menu-62",
+>                    "text": "BOD Executives",
+>                    "link": "/info/bod-executives"
+>                },
+>                {
+>                    "id": "menu-63",
+>                    "text": "Claim Info",
+>                    "link": "/info/claim-info"
+>                },
+>     		   {
+>     			   "id": "menu-64",
+>               	   "text": "New Page",
+>              	   "link": "/newPage"
+>     		   }
+>           ]
+>        },
+
+In this format,
+
+=> "id" is the key identification of that item. And it must be unique for every item.
+
+> "id": "menu-64",
+
+=> "text" is the name of the menu item.
+
+> "text": "New Page",
+
+=> "link" is the page route link. Which we discussed earlier.
+
+> "link": "/newPage"
