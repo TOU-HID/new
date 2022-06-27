@@ -151,9 +151,9 @@ You will find a folder named "data" in the "src" folder. Open it, and there is a
 
 <img src="./img/menu.png" alt="#"/>
 
-In that "general" folder you will find json data file for "menu" and "footer". Now you can add this new page link any where in these json data files.
+In that "general" folder you will find json data file "menu.json" and "footer.json". Now you can add this new page link any where in these "menu.json" and "footer.json" data files.
 
-An example is provided for understanding
+### **An example is provided for understanding adding link to menu.**
 
 >     	{
 >            "id": "menu-6",
@@ -182,7 +182,7 @@ In menu.json file, you will find an object with "id": "menu-6", there is "submen
 
 > **Note:** array enclosed in [] , and object enclosed in {} .
 
-Now add forth object in "submenu" array like this:
+Now add forth object in "submenu" array and save this.
 
 >     	{
 >            "id": "menu-6",
@@ -225,3 +225,64 @@ In this format,
 => "link" is the page route link. Which we discussed earlier.
 
 > "link": "/newPage"
+
+### **An example is provided for understanding adding link to footer.**
+
+Go to "footer.json" file and edit
+
+        {
+            "id": "footer-3",
+            "title": "About Us",
+            "list": [
+                {
+                    "id": "footer-list-31",
+                    "text": "Company Profile",
+                    "link": "/about/about-us"
+                },
+                {
+                    "id": "footer-list-32",
+                    "text": "Chairman's Profile",
+                    "link": "/about/chairman's-profile"
+                },
+                {
+                    "id": "footer-list-33",
+                    "text": "Chief Consultant's Profile",
+                    "link": "/about/chief-consultant's-profile"
+                },
+                {
+                    "id": "footer-list-34",
+                    "text": "CEO's Profile",
+                    "link": "/about/ceo's-profile"
+                },
+                {
+                    "id": "footer-list-35",
+                    "text": "Board Of Directors",
+                    "link": "/about/board-of-directors"
+                },
+                {
+                    "id": "footer-list-36",
+                    "text": "Management",
+                    "link": "/about/management"
+                },
+                {
+                    "id": "footer-list-37",
+                    "text": "Divisions-Depts",
+                    "link": "/about/divisions-depts"
+                },
+                {
+                    "id": "footer-list-38",
+                    "text": "Organogram",
+                    "link": "/about/organogram"
+                }
+            ]
+        },
+
+Now add the below object in "submenu" array as you saw in the previous example.
+
+    			{
+                    "id": "footer-list-39",
+                    "text": "New Page",
+                    "link": "/newPage"
+                }
+
+Now you will see the last added item in footer about menu list.
