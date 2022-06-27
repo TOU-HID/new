@@ -182,17 +182,17 @@ In menu.json file, you will find an object with "id": "menu-6", there is "submen
 
 > **Note:** array enclosed in [] , and object enclosed in {} .
 
-Now add forth object in "submenu" arry like this:
+Now add forth object in "submenu" array like this:
 
 >     	{
 >            "id": "menu-6",
 >            "text": "Info",
->           "link": "/",
->           "submenu": [
+>            "link": "/",
+>            "submenu": [
 >                {
->                   "id": "menu-61",
->                   "text": "Agent info",
->                   "link": "/info/agent-info"
+>                    "id": "menu-61",
+>                    "text": "Agent info",
+>                    "link": "/info/agent-info"
 >                },
 >                {
 >                    "id": "menu-62",
@@ -204,12 +204,12 @@ Now add forth object in "submenu" arry like this:
 >                    "text": "Claim Info",
 >                    "link": "/info/claim-info"
 >                },
->     		   {
->     			   "id": "menu-64",
->               	   "text": "New Page",
->              	   "link": "/newPage"
->     		   }
->           ]
+>                {
+>                    "id": "menu-64",
+>                    "text": "New Page",
+>                    "link": "/newPage"
+>                }
+>            ]
 >        },
 
 In this format,
