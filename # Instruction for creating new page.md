@@ -279,7 +279,7 @@ Go to "footer.json" file and edit
 
 Now add the below object in "submenu" array as you saw in the previous example.
 
-    {
+       {
                     "id": "footer-list-38",
                     "text": "New Page",
                     "link": "/newPage"
