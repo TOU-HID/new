@@ -510,3 +510,5 @@ If you need paragraph, add a paragraph tag.
 ```
 
 In this way you can costomize the new product page by adding tags.
+
+> **Note:** You can create any new similiar pages by following above procedure.
