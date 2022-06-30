@@ -145,6 +145,8 @@ Now you can coustomize this page as you want by coading in the container tag.
 </Container>
 ```
 
+> **Note:** In this similiar way you can create any page in your website. Such as: you can copy "Board of director" page in 'about' folder and do the same operation on that file, then coustomize it
+
 ## **Step 3:** Adding the new page link to the menu
 
 You will find a folder named "data" in the "src" folder. Open it, and there is a "generel" folder in that "data" folder
@@ -286,3 +288,225 @@ Now add the below object in "submenu" array as you saw in the previous example.
                 }
 
 Now you will see the last added item in footer about menu list.
+
+# Creating a product page:
+
+> Copy any product page and rename it as your new product with extention '.jsx'.
+
+```html
+import PropTypes from "prop-types";
+import { graphql } from "gatsby";
+import { Container } from "react-bootstrap";
+import Layout from "@layout";
+import SEO from "@components/seo";
+import { normalizedData } from "@utils/functions";
+import jsonDataInit from "../../data/products/engineering-insurance.json";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Preload from "../../components/preloadPage/preload";
+
+
+1. const Engineering = ({ data, location, pageContext }) => {
+    const [jsonData, setJsonData] = useState(jsonDataInit);
+    const [preload, setPreload] = useState(true);
+    useEffect(() => {
+        axios(
+            "https://reliance-admin.dev.quanticdynamics.cloud/api/sendJSON/62a7312178fc357870f08ff7"
+        )
+            .then((resultData) => {
+                setJsonData(resultData.data);
+                setPreload(false);
+            })
+            .catch((err) => {
+                console.log(err);
+                setPreload(false);
+            });
+    }, []);
+    const globalContent = normalizedData(data?.allGeneral?.nodes || []);
+    return (
+        <Layout
+            data={{
+                ...globalContent["menu"],
+                ...globalContent["footer"],
+            }}
+        >
+            {" "}
+            {preload && <Preload />}
+            <SEO title="Engineering Insurance" pathname="/" />
+            <Container>
+                <img
+                    style={{
+                        marginTop: "10px",
+                        marginBottom: "30px",
+                        borderRadius: "10px",
+                    }}
+                    src={jsonData[0].image}
+                    alt="Engineering"
+                />
+                <div
+                    style={{
+                        marginBottom: "30px",
+                    }}
+                >
+                    <h3>{jsonData[0].title}</h3>
+                    <ul>
+                        <li
+                            style={{
+                                fontSize: "17px",
+                                marginLeft: "20px",
+                                color: "#000",
+                            }}
+                        >
+                            {jsonData[0].title1}
+                        </li>
+                        <li
+                            style={{
+                                fontSize: "17px",
+                                marginLeft: "20px",
+                                color: "#000",
+                            }}
+                        >
+                            {jsonData[0].title2}
+                        </li>
+                        <li
+                            style={{
+                                fontSize: "17px",
+                                marginLeft: "20px",
+                                color: "#000",
+                            }}
+                        >
+                            {jsonData[0].text}
+                        </li>
+                        <li
+                            style={{
+                                fontSize: "17px",
+                                marginLeft: "20px",
+                                color: "#000",
+                            }}
+                        >
+                            {jsonData[0].text1}
+                        </li>
+                        <li
+                            style={{
+                                fontSize: "17px",
+                                marginLeft: "20px",
+                                color: "#000",
+                            }}
+                        >
+                            {jsonData[0].text2}
+                        </li>
+                        <li
+                            style={{
+                                fontSize: "17px",
+                                marginLeft: "20px",
+                                color: "#000",
+                            }}
+                        >
+                            {jsonData[1].title2}
+                        </li>
+                        <li
+                            style={{
+                                fontSize: "17px",
+                                marginLeft: "20px",
+                                color: "#000",
+                            }}
+                        >
+                            {jsonData[1].title1}
+                        </li>
+                        <li
+                            style={{
+                                fontSize: "17px",
+                                marginLeft: "20px",
+                                color: "#000",
+                            }}
+                        >
+                            {jsonData[1].title2}
+                        </li>
+                        <li
+                            style={{
+                                fontSize: "17px",
+                                marginLeft: "20px",
+                                color: "#000",
+                            }}
+                        >
+                            {jsonData[1].text}
+                        </li>
+                        <li
+                            style={{
+                                fontSize: "17px",
+                                marginLeft: "20px",
+                                color: "#000",
+                            }}
+                        >
+                            {jsonData[1].text1}
+                        </li>
+                    </ul>
+                    <p style={{ color: "#000", fontSize: "18px" }}>
+                        {jsonData[1].text2}
+                    </p>
+                </div>
+            </Container>
+        </Layout>
+    );
+};
+2. Engineering.propTypes = {
+    location: PropTypes.object,
+    pageContext: PropTypes.object,
+    data: PropTypes.shape({
+        allGeneral: PropTypes.shape({
+            nodes: PropTypes.arrayOf(PropTypes.shape({})),
+        }),
+        allArticle: PropTypes.shape({
+            nodes: PropTypes.arrayOf(PropTypes.shape({})),
+        }),
+    }),
+};
+
+export const query = graphql`
+3.    query EngineeringQuery {
+        allGeneral {
+            nodes {
+                section
+                id
+                menu {
+                    ...Menu
+                }
+                footer {
+                    ...Footer
+                }
+            }
+        }
+        allArticle {
+            nodes {
+                ...Articles
+            }
+        }
+    }
+`;
+
+4. export default Engineering;
+
+```
+
+> **Note:** Rename four places in the file as your page name, where 1, 2, 3, 4 number are located, on those lines.
+
+At first change the product page image
+
+```html
+<img style={{ marginTop: "10px", marginBottom: "30px", borderRadius: "10px", }}
+src={jsonData[0].image} alt="Engineering" />
+```
+
+Then if you need heading, add a heading tag.
+
+```html
+<h1>Paste your heading here</h1>
+```
+
+If you need paragraph, add a paragraph tag.
+
+```html
+<p>Paste your paragraph here</p>
+```
+
+In this way you can costomize the new product page by adding tags.
